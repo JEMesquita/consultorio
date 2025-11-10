@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultório Médico</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-container img {
+            height: 60px;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            background-color: #ecf0f1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-icon img {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .card-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-top: 1rem;
+        }
+        
+        .card-text {
+            color: #666;
+        }
+        
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .welcome-section {
+            background-color: #3498db;
+            color: white;
+            padding: 3rem 0;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .welcome-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .welcome-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .icon-badge {
+            background-color: #3498db;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .card-icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .card-icon img {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .welcome-section h2 {
+                font-size: 2rem;
+            }
+            
+            .welcome-section p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="/images/logo.png" alt="Logo da Clínica" class="logo-image">
+                <h1 class="logo-text">Clínica Médica</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <h2>Bem-vindo ao Sistema de Gestão do Consultório</h2>
+            <p>Solução completa para gestão de médicos, pacientes, agendas e faturamento</p>
+        </section>
+
+        <!-- Dashboard Cards -->
+        <div class="row text-center">
+            <!-- Pacientes -->
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-icon">
+                        <img src="/images/patient-icon.png" alt="Pacientes" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Pacientes</h5>
+                        <p class="card-text">Gerencie os dados dos pacientes e suas fichas médicas</p>
+                        <a href="#" class="btn btn-primary">Acessar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Médicos -->
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-icon">
+                        <img src="/images/doctor-icon.png" alt="Médicos" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Médicos</h5>
+                        <p class="card-text">Cadastre e gerencie os profissionais da clínica</p>
+                        <a href="#" class="btn btn-success">Acessar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secretárias -->
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-icon">
+                        <img src="/images/secretary-icon.png" alt="Secretárias" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Secretárias</h5>
+                        <p class="card-text">Gerencie as secretárias e seus acessos</p>
+                        <a href="#" class="btn btn-warning">Acessar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clínica -->
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-icon">
+                        <img src="/images/clinic-icon.png" alt="Clínica" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Clínica</h5>
+                        <p class="card-text">Dados da clínica, CNPJ e documentos</p>
+                        <a href="#" class="btn btn-info">Acessar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Row of Cards -->
+        <div class="row text-center">
+            <!-- Agenda -->
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-icon">
+                        <img src="/images/agenda-icon.png" alt="Agenda" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Agenda</h5>
+                        <p class="card-text">Controle de compromissos e consultas</p>
+                        <a href="#" class="btn btn-primary">Acessar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faturamento -->
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-icon">
+                        <img src="/images/invoice-icon.png" alt="Faturamento" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Faturamento</h5>
+                        <p class="card-text">Relatórios financeiros por convênio</p>
+                        <a href="#" class="btn btn-danger">Acessar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documentos -->
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-icon">
+                        <img src="/images/document-icon.png" alt="Documentos" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Documentos</h5>
+                        <p class="card-text">Receitas, atestados e cabeçalhos</p>
+                        <a href="#" class="btn btn-success">Acessar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CID -->
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-icon">
+                        <i class="fas fa-notes-medical icon-badge" style="font-size: 2rem;"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Classificação CID</h5>
+                        <p class="card-text">Busca e consulta de doenças</p>
+                        <a href="#" class="btn btn-info">Acessar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Consultório Médico - Sistema de Gestão Completa</p>
+            <p>Desenvolvido com Spring Boot, JPA/Hibernate e Thymeleaf</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
